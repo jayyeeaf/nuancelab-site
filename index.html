@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="nuance.lab — Utrecht-based research identity exploring embodied rhythm, dance culture, and social neuroscience.">
+  <meta name="theme-color" content="#B4AEA2">
+  <title>nuance.lab · Utrecht</title>
+  <link rel="icon" type="image/jpeg" href="assets/nuance_lab_logo_static.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#top" aria-label="nuance.lab home">nuance.lab</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero" aria-labelledby="hero-heading">
+      <div class="wrap hero-inner">
+        <div class="logo-stage">
+          <video
+            class="logo-motion"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="assets/logo_motion_03_poster.jpg"
+            aria-label="nuance.lab logo animation revealing the Dutch phrase nu ons lab"
+          >
+            <source src="assets/nuance_lab_logo_motion_03.mp4" type="video/mp4">
+          </video>
+          <img
+            class="logo-fallback"
+            src="assets/nuance_lab_logo_static.jpg"
+            alt="nuance.lab wordmark"
+            width="720"
+            height="405"
+          >
+        </div>
+        <h1 id="hero-heading" class="visually-hidden">nuance.lab</h1>
+        <p class="tagline">
+          A Utrecht-based research identity exploring embodied rhythm,
+          dance culture, and social neuroscience — with care for what
+          movement does between people, not what it promises to cure.
+        </p>
+        <p class="affiliation">nuance.lab · Utrecht</p>
+      </div>
+    </section>
+
+    <section id="about" class="section about" aria-labelledby="about-heading">
+      <div class="wrap narrow">
+        <h2 id="about-heading">About</h2>
+        <p>
+          <strong>nuance.lab</strong> is Jason Yee’s research identity,
+          based in Utrecht. The work sits at the meeting of rhythmic
+          practice, cultural life, and how bodies share attention —
+          asking how people move together, and what that shared motion
+          makes possible.
+        </p>
+        <p class="subtle">
+          The logo’s quiet dissolve reveals Dutch
+          <em>nu ons lab</em> — “now our lab” — a small reminder that
+          the work belongs to the room it happens in.
+        </p>
+      </div>
+    </section>
+
+    <section id="work" class="section work" aria-labelledby="work-heading">
+      <div class="wrap narrow">
+        <h2 id="work-heading">Work</h2>
+        <article class="teaser">
+          <p class="eyebrow">Forthcoming</p>
+          <h3><cite>Together, Somehow</cite></h3>
+          <p>
+            A white paper on embodied–rhythmic infrastructure for
+            arts, culture, and social funding — how shared pulse and
+            co-presence can inform how programmes are designed and
+            supported, without overclaiming health outcomes.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact" aria-labelledby="contact-heading">
+      <div class="wrap narrow">
+        <h2 id="contact-heading">Contact</h2>
+        <p class="contact-name">Jason Yee</p>
+        <p class="affiliation">nuance.lab · Utrecht</p>
+        <p class="subtle">
+          For affiliation and forthcoming publications, watch this space.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; <span id="year"></span> nuance.lab · Utrecht</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Prefer motion video; hide static fallback when video can play
+    (function () {
+      var video = document.querySelector('.logo-motion');
+      var fallback = document.querySelector('.logo-fallback');
+      if (!video || !fallback) return;
+      function showVideo() {
+        fallback.hidden = true;
+        video.classList.add('is-ready');
+      }
+      function showFallback() {
+        video.hidden = true;
+        fallback.hidden = false;
+      }
+      video.addEventListener('loadeddata', showVideo);
+      video.addEventListener('error', showFallback);
+      if (video.readyState >= 2) showVideo();
+    })();
+  </script>
+</body>
+</html>
