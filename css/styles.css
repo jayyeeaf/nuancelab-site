@@ -382,3 +382,97 @@ a:focus-visible {
     gap: 1rem;
   }
 }
+
+/* Stacked concept boxes / teasers */
+
+.concept-box + .concept-box,
+.teaser + .teaser {
+  margin-top: 1.25rem;
+}
+
+.teaser h3 a,
+.concept-box h3 a {
+  text-decoration: none;
+}
+
+.teaser h3 a:hover,
+.teaser h3 a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Inner pages (e.g. Dance Commons) */
+
+.site-nav a[aria-current="page"] {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.page-intro {
+  padding: clamp(2.5rem, 7vw, 4.5rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.page-intro h1 {
+  margin: 0 0 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 2vw + 1.3rem, 2.5rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.page-intro .tagline {
+  max-width: none;
+}
+
+.page-intro .affiliation {
+  margin-top: 1.25rem;
+}
+
+.section h3 {
+  margin: 1.75rem 0 0.6rem;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.section .concept-box h3,
+.section .teaser h3 {
+  margin-top: 0;
+}
+
+.idea-list {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.idea-list li {
+  padding: 1rem 1.2rem 1.05rem;
+  background: color-mix(in srgb, var(--near-white) 28%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+  border-radius: calc(var(--radius) + 0.1rem);
+  color: var(--text-soft);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.idea-list .idea-name {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.plain-list {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+  color: var(--text-soft);
+}
+
+.plain-list li + li {
+  margin-top: 0.4rem;
+}
