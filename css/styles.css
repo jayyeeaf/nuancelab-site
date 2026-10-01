@@ -476,3 +476,46 @@ a:focus-visible {
 .plain-list li + li {
   margin-top: 0.4rem;
 }
+
+/* Flow gradient box (Dance Commons, principle 3) */
+
+.idea-list li[id],
+.concept-box[id] {
+  scroll-margin-top: 5rem;
+}
+
+.idea-list .gradient-box {
+  margin-top: 1.1rem;
+  background: color-mix(in srgb, var(--near-white) 22%, transparent);
+}
+
+.flow-figure {
+  margin: 0 0 1.1rem;
+}
+
+.flow-figure svg {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  height: auto;
+  margin-inline: auto;
+}
+
+.flow-figure figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--mid);
+  text-align: center;
+}
+
+.back-link {
+  font-size: 0.88rem !important;
+}
+
+@media (max-width: 480px) {
+  .idea-list .gradient-box {
+    margin-inline: -0.6rem;
+    padding: 1.1rem 1rem 1.2rem;
+  }
+}
