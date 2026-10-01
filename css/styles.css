@@ -493,7 +493,7 @@ a:focus-visible {
   margin: 0 0 1.1rem;
 }
 
-.flow-figure svg {
+.flow-figure > svg {
   display: block;
   width: 100%;
   max-width: 26rem;
@@ -778,4 +778,63 @@ html.modal-open body {
 @media (prefers-reduced-motion: reduce) {
   .flow-dot-mark { transition: none; }
   .flow-tip { animation: none; }
+}
+
+/* Out-of-channel (anxiety / boredom) dots: hollow */
+
+.flow-dot--out .flow-dot-mark {
+  fill: #E8E6E0;
+  stroke: #2C2C2C;
+  stroke-width: 2;
+}
+
+.flow-dot--out:hover .flow-dot-mark,
+.flow-dot--out:focus .flow-dot-mark,
+.flow-dot--out.is-active .flow-dot-mark {
+  fill: #B5B1A7;
+  stroke: #2C2C2C;
+  stroke-width: 2.5;
+}
+
+.flow-tip--anxiety,
+.flow-tip--boredom {
+  border-left-style: dashed;
+  border-left-color: var(--mid);
+}
+
+.flow-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.1rem;
+  margin: 0.35rem 0 0 !important;
+  font-size: 0.82rem !important;
+  color: var(--mid) !important;
+}
+
+.flow-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.legend-dot {
+  flex-shrink: 0;
+  display: block;
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.legend-in {
+  fill: #2C2C2C;
+}
+
+.legend-out {
+  fill: #E8E6E0;
+  stroke: #2C2C2C;
+  stroke-width: 1.8;
+}
+
+.flow-legend + .flow-hint {
+  margin-top: 0.15rem !important;
 }

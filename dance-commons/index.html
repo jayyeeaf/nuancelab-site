@@ -154,7 +154,7 @@
               <figure class="flow-figure">
                 <svg viewBox="0 0 400 330" role="group" aria-labelledby="flow-svg-title" aria-describedby="flow-svg-desc" xmlns="http://www.w3.org/2000/svg">
                   <title id="flow-svg-title">The flow channel: a gradient of dancers, each in their own flow zone</title>
-                  <desc id="flow-svg-desc">A chart with skill on the horizontal axis and challenge on the vertical axis. A diagonal band labelled Flow runs from low skill and low challenge up to high skill and high challenge. The area above the band is labelled Anxiety, where challenge outweighs skill; the area below is labelled Boredom, where skill outweighs challenge. Five dots, standing for dancers at different levels, sit inside the band at different points along it. Each dot can be selected to read how a person at that point might feel.</desc>
+                  <desc id="flow-svg-desc">A chart with skill on the horizontal axis and challenge on the vertical axis. A diagonal band labelled Flow runs from low skill and low challenge up to high skill and high challenge. The area above the band is labelled Anxiety, where challenge outweighs skill; the area below is labelled Boredom, where skill outweighs challenge. Nine dots stand for dancers. Five filled dots sit inside the band at different points along it, from low to high: dancers each in their own flow zone. Two hollow dots sit in the Anxiety area, where the challenge is too high for the dancer’s skill, and two hollow dots sit in the Boredom area, where the challenge is too low. Each dot can be selected, in order from low to high skill, to read how a person at that point might feel.</desc>
                   <defs>
                     <marker id="flow-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
                       <path d="M0,1 L9,5 L0,9 z" fill="#3A3A3A"/>
@@ -176,35 +176,59 @@
                     <text x="0" y="0" transform="translate(236 118) rotate(-37.7)" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="1">Flow</text>
                     <!-- dancers: each in their own flow zone -->
                     <g class="flow-dots">
-                      <g class="flow-dot" tabindex="0" role="button" aria-label="Dancer 1 of 5: First night" aria-describedby="flow-tip-1" data-tip="flow-tip-1">
+                      <g class="flow-dot flow-dot--out" data-zone="anxiety" tabindex="0" role="button" aria-label="Dancer 1 of 9, anxious: Thrown in the deep end" aria-describedby="flow-tip-1" data-tip="flow-tip-1">
+                        <circle class="flow-dot-hit" cx="80" cy="60" r="17"/>
+                        <circle class="flow-dot-mark" cx="80" cy="60" r="6.5"/>
+                      </g>
+                      <g class="flow-dot" data-zone="flow" tabindex="0" role="button" aria-label="Dancer 2 of 9, in flow: First night" aria-describedby="flow-tip-2" data-tip="flow-tip-2">
                         <circle class="flow-dot-hit" cx="99" cy="229" r="17"/>
                         <circle class="flow-dot-mark" cx="99" cy="229" r="6.5"/>
                       </g>
-                      <g class="flow-dot" tabindex="0" role="button" aria-label="Dancer 2 of 5: Finding a groove" aria-describedby="flow-tip-2" data-tip="flow-tip-2">
+                      <g class="flow-dot" data-zone="flow" tabindex="0" role="button" aria-label="Dancer 3 of 9, in flow: Finding a groove" aria-describedby="flow-tip-3" data-tip="flow-tip-3">
                         <circle class="flow-dot-hit" cx="150" cy="189" r="17"/>
                         <circle class="flow-dot-mark" cx="150" cy="189" r="6.5"/>
                       </g>
-                      <g class="flow-dot" tabindex="0" role="button" aria-label="Dancer 3 of 5: Getting playful" aria-describedby="flow-tip-3" data-tip="flow-tip-3">
+                      <g class="flow-dot flow-dot--out" data-zone="anxiety" tabindex="0" role="button" aria-label="Dancer 4 of 9, anxious: Out of my depth" aria-describedby="flow-tip-4" data-tip="flow-tip-4">
+                        <circle class="flow-dot-hit" cx="190" cy="36" r="17"/>
+                        <circle class="flow-dot-mark" cx="190" cy="36" r="6.5"/>
+                      </g>
+                      <g class="flow-dot" data-zone="flow" tabindex="0" role="button" aria-label="Dancer 5 of 9, in flow: Getting playful" aria-describedby="flow-tip-5" data-tip="flow-tip-5">
                         <circle class="flow-dot-hit" cx="200" cy="150" r="17"/>
                         <circle class="flow-dot-mark" cx="200" cy="150" r="6.5"/>
                       </g>
-                      <g class="flow-dot" tabindex="0" role="button" aria-label="Dancer 4 of 5: Riding the music" aria-describedby="flow-tip-4" data-tip="flow-tip-4">
+                      <g class="flow-dot flow-dot--out" data-zone="boredom" tabindex="0" role="button" aria-label="Dancer 6 of 9, bored: Nothing to reach for" aria-describedby="flow-tip-6" data-tip="flow-tip-6">
+                        <circle class="flow-dot-hit" cx="215" cy="248" r="17"/>
+                        <circle class="flow-dot-mark" cx="215" cy="248" r="6.5"/>
+                      </g>
+                      <g class="flow-dot" data-zone="flow" tabindex="0" role="button" aria-label="Dancer 7 of 9, in flow: Riding the music" aria-describedby="flow-tip-7" data-tip="flow-tip-7">
                         <circle class="flow-dot-hit" cx="275" cy="93" r="17"/>
                         <circle class="flow-dot-mark" cx="275" cy="93" r="6.5"/>
                       </g>
-                      <g class="flow-dot" tabindex="0" role="button" aria-label="Dancer 5 of 5: Deep in it" aria-describedby="flow-tip-5" data-tip="flow-tip-5">
+                      <g class="flow-dot" data-zone="flow" tabindex="0" role="button" aria-label="Dancer 8 of 9, in flow: Deep in it" aria-describedby="flow-tip-8" data-tip="flow-tip-8">
                         <circle class="flow-dot-hit" cx="322" cy="59" r="17"/>
                         <circle class="flow-dot-mark" cx="322" cy="59" r="6.5"/>
+                      </g>
+                      <g class="flow-dot flow-dot--out" data-zone="boredom" tabindex="0" role="button" aria-label="Dancer 9 of 9, bored: Going through the motions" aria-describedby="flow-tip-9" data-tip="flow-tip-9">
+                        <circle class="flow-dot-hit" cx="352" cy="250" r="17"/>
+                        <circle class="flow-dot-mark" cx="352" cy="250" r="6.5"/>
                       </g>
                     </g>
                   </g>
                 </svg>
-                <p class="flow-hint">Hover over (or tap) a dancer to see how it feels.</p>
-                <div class="flow-tip" id="flow-tip-1" role="tooltip" hidden><strong>First night</strong> I’m just swaying and stepping to the beat. Simple, but I’m in it, and nobody’s watching me.</div>
-                <div class="flow-tip" id="flow-tip-2" role="tooltip" hidden><strong>Finding a groove</strong> I copied a step from the person next to me and it actually worked. Then I lost it, then got it back.</div>
-                <div class="flow-tip" id="flow-tip-3" role="tooltip" hidden><strong>Getting playful</strong> Now I’m adding my own little twist. Some tries flop, I laugh, and try again. Where did the last hour go?</div>
-                <div class="flow-tip" id="flow-tip-4" role="tooltip" hidden><strong>Riding the music</strong> The track throws in a break and my body answers before I think. Hard, but it feels effortless.</div>
-                <div class="flow-tip" id="flow-tip-5" role="tooltip" hidden><strong>Deep in it</strong> I’m improvising with others at full stretch — reading the room, leading, following. I lose all track of time.</div>
+                <p class="flow-legend">
+                  <span><svg class="legend-dot" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="5.5" class="legend-in"/></svg> in flow</span>
+                  <span><svg class="legend-dot" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="5.5" class="legend-out"/></svg> anxious or bored</span>
+                </p>
+                <p class="flow-hint">Hover over (or tap) a dancer to see how it feels — inside the channel and outside it.</p>
+                <div class="flow-tip flow-tip--anxiety" id="flow-tip-1" role="tooltip" hidden><strong>Thrown in the deep end</strong> Everyone’s doing a fast routine I’ve never seen. My face is hot, I’m sure they’re all watching, and I just want to stand by the wall.</div>
+                <div class="flow-tip flow-tip--flow" id="flow-tip-2" role="tooltip" hidden><strong>First night</strong> I’m just swaying and stepping to the beat. Simple, but I’m in it, and nobody’s watching me.</div>
+                <div class="flow-tip flow-tip--flow" id="flow-tip-3" role="tooltip" hidden><strong>Finding a groove</strong> I copied a step from the person next to me and it actually worked. Then I lost it, then got it back.</div>
+                <div class="flow-tip flow-tip--anxiety" id="flow-tip-4" role="tooltip" hidden><strong>Out of my depth</strong> The tempo jumped and someone pulled me into the middle of the circle. My mind’s racing, my feet won’t listen.</div>
+                <div class="flow-tip flow-tip--flow" id="flow-tip-5" role="tooltip" hidden><strong>Getting playful</strong> Now I’m adding my own little twist. Some tries flop, I laugh, and try again. Where did the last hour go?</div>
+                <div class="flow-tip flow-tip--boredom" id="flow-tip-6" role="tooltip" hidden><strong>Nothing to reach for</strong> Same song, same steps, same corner of the room. Comfortable, but I’m checking the time.</div>
+                <div class="flow-tip flow-tip--flow" id="flow-tip-7" role="tooltip" hidden><strong>Riding the music</strong> The track throws in a break and my body answers before I think. Hard, but it feels effortless.</div>
+                <div class="flow-tip flow-tip--flow" id="flow-tip-8" role="tooltip" hidden><strong>Deep in it</strong> I’m improvising with others at full stretch — reading the room, leading, following. I lose all track of time.</div>
+                <div class="flow-tip flow-tip--boredom" id="flow-tip-9" role="tooltip" hidden><strong>Going through the motions</strong> I know this two-step in my sleep. My body’s moving but my mind is on my phone.</div>
                 <figcaption>After Csikszentmihalyi’s flow model (1975, 1990). Redrawn by nuance.lab.</figcaption>
               </figure>
               <p>
