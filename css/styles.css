@@ -509,13 +509,273 @@ a:focus-visible {
   text-align: center;
 }
 
-.back-link {
-  font-size: 0.88rem !important;
-}
-
 @media (max-width: 480px) {
   .idea-list .gradient-box {
     margin-inline: -0.6rem;
     padding: 1.1rem 1rem 1.2rem;
   }
+}
+
+/* Flow box as modal */
+
+.gradient-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.7rem;
+  padding: 0.3rem 0.8rem 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  background: color-mix(in srgb, var(--near-white) 45%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 22%, transparent);
+  border-radius: 999px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.gradient-trigger:hover,
+.gradient-trigger:focus-visible {
+  background: color-mix(in srgb, var(--near-white) 75%, transparent);
+  border-color: color-mix(in srgb, var(--text) 40%, transparent);
+  color: var(--text);
+}
+
+.gradient-trigger span {
+  transition: transform 0.2s ease;
+}
+
+.gradient-trigger:hover span {
+  transform: translateX(2px);
+}
+
+/* With JS, the inline box is moved into the dialog; hide it until then */
+.js .idea-list .gradient-box {
+  display: none;
+}
+
+html.modal-open,
+html.modal-open body {
+  overflow: hidden;
+}
+
+.flow-dialog {
+  width: min(40rem, 100vw - 2rem);
+  max-width: none;
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  overflow: hidden;
+  color: var(--text);
+  background: color-mix(in srgb, var(--near-white) 55%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
+  border-radius: calc(var(--radius) + 0.25rem);
+  box-shadow: 0 1.5rem 4rem rgba(44, 44, 44, 0.28);
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.flow-dialog.is-open {
+  opacity: 1;
+  transform: none;
+}
+
+.flow-dialog::backdrop {
+  background: rgba(110, 110, 106, 0.55);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.flow-dialog.is-open::backdrop {
+  opacity: 1;
+}
+
+.dialog-body {
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.flow-dialog .gradient-box {
+  margin: 0;
+  padding: 1.6rem 1.75rem 1.75rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.flow-dialog .gradient-box p {
+  color: var(--text-soft);
+}
+
+.dialog-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 1;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font: 400 1.5rem/1 var(--font-sans);
+  color: var(--text);
+  background: color-mix(in srgb, var(--near-white) 60%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dialog-close:hover,
+.dialog-close:focus-visible {
+  background: var(--near-white);
+}
+
+.dialog-close:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .flow-dialog {
+    width: calc(100vw - 1.25rem);
+    max-height: calc(100dvh - 1.25rem);
+  }
+  .dialog-body {
+    max-height: calc(100dvh - 1.25rem);
+  }
+  .flow-dialog .gradient-box {
+    margin: 0;
+    padding: 1.25rem 1.1rem 1.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-dialog,
+  .flow-dialog::backdrop,
+  .gradient-trigger,
+  .gradient-trigger span {
+    transition: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Taller stacked header on small screens */
+  .idea-list li[id],
+  .concept-box[id] {
+    scroll-margin-top: 7.5rem;
+  }
+}
+
+/* Interactive dancer dots + tooltips */
+
+.flow-figure {
+  position: relative;
+}
+
+.flow-dot {
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flow-dot-hit {
+  fill: transparent;
+}
+
+.flow-dot-mark {
+  fill: #2C2C2C;
+  stroke: #F5F3ED;
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.15s ease, stroke 0.15s ease, stroke-width 0.15s ease;
+}
+
+.flow-dot:hover .flow-dot-mark,
+.flow-dot:focus .flow-dot-mark,
+.flow-dot.is-active .flow-dot-mark {
+  transform: scale(1.35);
+  stroke: #B5B1A7;
+  stroke-width: 3.5;
+  filter: drop-shadow(0 0 1.5px rgba(44, 44, 44, 0.55));
+}
+
+.flow-dot:focus-visible .flow-dot-hit {
+  stroke: #2C2C2C;
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+}
+
+.flow-hint {
+  display: none;
+  margin: 0.35rem 0 0 !important;
+  font-size: 0.85rem !important;
+  font-style: italic;
+  color: var(--mid) !important;
+  text-align: center;
+}
+
+.js .flow-hint {
+  display: block;
+}
+
+.flow-tip {
+  position: absolute;
+  z-index: 2;
+  width: max-content;
+  max-width: min(16rem, 100%);
+  padding: 0.6rem 0.75rem 0.65rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--text-soft);
+  background: var(--near-white);
+  border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+  border-left: 3px solid var(--bg);
+  border-radius: var(--radius);
+  box-shadow: 0 0.5rem 1.5rem rgba(44, 44, 44, 0.18);
+  pointer-events: none;
+  animation: flow-tip-in 0.15s ease;
+}
+
+.flow-tip[hidden] {
+  display: none;
+}
+
+.flow-tip strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.flow-tip::after {
+  content: "";
+  position: absolute;
+  left: var(--arrow-x, 50%);
+  bottom: -6px;
+  width: 10px;
+  height: 10px;
+  background: var(--near-white);
+  border-right: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.flow-tip.is-below::after {
+  bottom: auto;
+  top: -6px;
+  transform: translateX(-50%) rotate(225deg);
+}
+
+@keyframes flow-tip-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-dot-mark { transition: none; }
+  .flow-tip { animation: none; }
 }

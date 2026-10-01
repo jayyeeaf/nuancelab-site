@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -145,14 +146,15 @@
             Walking and swaying count. Simple steps and freer play are there
             when you are ready, and beginners and skilled movers share the
             floor without ranking.
+            <a class="gradient-trigger" href="#why-a-gradient" aria-haspopup="dialog" aria-controls="gradient-dialog">Why a gradient? <span aria-hidden="true">→</span></a>
 
             <aside id="why-a-gradient" class="concept-box gradient-box" aria-labelledby="gradient-heading">
               <p class="eyebrow">Behind principle 3</p>
               <h3 id="gradient-heading">Why a gradient?</h3>
               <figure class="flow-figure">
-                <svg viewBox="0 0 400 330" role="img" aria-labelledby="flow-svg-title flow-svg-desc" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 400 330" role="group" aria-labelledby="flow-svg-title" aria-describedby="flow-svg-desc" xmlns="http://www.w3.org/2000/svg">
                   <title id="flow-svg-title">The flow channel: a gradient of dancers, each in their own flow zone</title>
-                  <desc id="flow-svg-desc">A chart with skill on the horizontal axis and challenge on the vertical axis. A diagonal band labelled Flow runs from low skill and low challenge up to high skill and high challenge. The area above the band is labelled Anxiety, where challenge outweighs skill; the area below is labelled Boredom, where skill outweighs challenge. Five dots, standing for dancers at different levels, sit inside the band at different points along it.</desc>
+                  <desc id="flow-svg-desc">A chart with skill on the horizontal axis and challenge on the vertical axis. A diagonal band labelled Flow runs from low skill and low challenge up to high skill and high challenge. The area above the band is labelled Anxiety, where challenge outweighs skill; the area below is labelled Boredom, where skill outweighs challenge. Five dots, standing for dancers at different levels, sit inside the band at different points along it. Each dot can be selected to read how a person at that point might feel.</desc>
                   <defs>
                     <marker id="flow-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
                       <path d="M0,1 L9,5 L0,9 z" fill="#3A3A3A"/>
@@ -173,15 +175,36 @@
                     <text x="290" y="215" font-size="18" font-style="italic" fill="#3A3A3A" text-anchor="middle">Boredom</text>
                     <text x="0" y="0" transform="translate(236 118) rotate(-37.7)" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="1">Flow</text>
                     <!-- dancers: each in their own flow zone -->
-                    <g stroke="#F5F3ED" stroke-width="2" fill="#2C2C2C">
-                      <circle cx="99" cy="229" r="6.5"/>
-                      <circle cx="150" cy="189" r="6.5"/>
-                      <circle cx="200" cy="150" r="6.5"/>
-                      <circle cx="275" cy="93" r="6.5"/>
-                      <circle cx="322" cy="59" r="6.5"/>
+                    <g class="flow-dots">
+                      <g class="flow-dot" tabindex="0" role="button" aria-label="Dancer 1 of 5: First night" aria-describedby="flow-tip-1" data-tip="flow-tip-1">
+                        <circle class="flow-dot-hit" cx="99" cy="229" r="17"/>
+                        <circle class="flow-dot-mark" cx="99" cy="229" r="6.5"/>
+                      </g>
+                      <g class="flow-dot" tabindex="0" role="button" aria-label="Dancer 2 of 5: Finding a groove" aria-describedby="flow-tip-2" data-tip="flow-tip-2">
+                        <circle class="flow-dot-hit" cx="150" cy="189" r="17"/>
+                        <circle class="flow-dot-mark" cx="150" cy="189" r="6.5"/>
+                      </g>
+                      <g class="flow-dot" tabindex="0" role="button" aria-label="Dancer 3 of 5: Getting playful" aria-describedby="flow-tip-3" data-tip="flow-tip-3">
+                        <circle class="flow-dot-hit" cx="200" cy="150" r="17"/>
+                        <circle class="flow-dot-mark" cx="200" cy="150" r="6.5"/>
+                      </g>
+                      <g class="flow-dot" tabindex="0" role="button" aria-label="Dancer 4 of 5: Riding the music" aria-describedby="flow-tip-4" data-tip="flow-tip-4">
+                        <circle class="flow-dot-hit" cx="275" cy="93" r="17"/>
+                        <circle class="flow-dot-mark" cx="275" cy="93" r="6.5"/>
+                      </g>
+                      <g class="flow-dot" tabindex="0" role="button" aria-label="Dancer 5 of 5: Deep in it" aria-describedby="flow-tip-5" data-tip="flow-tip-5">
+                        <circle class="flow-dot-hit" cx="322" cy="59" r="17"/>
+                        <circle class="flow-dot-mark" cx="322" cy="59" r="6.5"/>
+                      </g>
                     </g>
                   </g>
                 </svg>
+                <p class="flow-hint">Hover over (or tap) a dancer to see how it feels.</p>
+                <div class="flow-tip" id="flow-tip-1" role="tooltip" hidden><strong>First night</strong> I’m just swaying and stepping to the beat. Simple, but I’m in it, and nobody’s watching me.</div>
+                <div class="flow-tip" id="flow-tip-2" role="tooltip" hidden><strong>Finding a groove</strong> I copied a step from the person next to me and it actually worked. Then I lost it, then got it back.</div>
+                <div class="flow-tip" id="flow-tip-3" role="tooltip" hidden><strong>Getting playful</strong> Now I’m adding my own little twist. Some tries flop, I laugh, and try again. Where did the last hour go?</div>
+                <div class="flow-tip" id="flow-tip-4" role="tooltip" hidden><strong>Riding the music</strong> The track throws in a break and my body answers before I think. Hard, but it feels effortless.</div>
+                <div class="flow-tip" id="flow-tip-5" role="tooltip" hidden><strong>Deep in it</strong> I’m improvising with others at full stretch — reading the room, leading, following. I lose all track of time.</div>
                 <figcaption>After Csikszentmihalyi’s flow model (1975, 1990). Redrawn by nuance.lab.</figcaption>
               </figure>
               <p>
@@ -199,15 +222,14 @@
                 from people a step ahead. Support grows and shrinks as you
                 need it, with room for quick cycles of try, fail, try, succeed,
                 try again — the way bodies learn. That is what
-                <a href="#start-where-you-are">start where you are</a> looks
+                <a href="#start-where-you-are" data-dialog-link="scroll">start where you are</a> looks
                 like in practice, and part of why we keep
-                <a href="#space-to-be-awkward">space to be awkward</a>.
+                <a href="#space-to-be-awkward" data-dialog-link="navigate">space to be awkward</a>.
               </p>
               <p class="subtle concept-cite">
                 Csikszentmihalyi, M. (1975). <em>Beyond Boredom and Anxiety</em>.
                 Csikszentmihalyi, M. (1990). <em>Flow: The Psychology of Optimal Experience</em>.
               </p>
-              <p class="back-link"><a href="#start-where-you-are">↑ Back to principle 3: Start where you are</a></p>
             </aside>
           </li>
           <li id="space-to-be-awkward">
@@ -270,6 +292,10 @@
         </aside>
       </div>
     </section>
+    <dialog id="gradient-dialog" class="flow-dialog" aria-labelledby="gradient-heading">
+      <button type="button" class="dialog-close" aria-label="Close">×</button>
+      <div class="dialog-body"></div>
+    </dialog>
   </main>
 
   <footer class="site-footer">
@@ -280,6 +306,170 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    (function () {
+      var dialog = document.getElementById('gradient-dialog');
+      var box = document.getElementById('why-a-gradient');
+      var trigger = document.querySelector('.gradient-trigger');
+      if (!dialog || !box || typeof dialog.showModal !== 'function') {
+        document.documentElement.classList.remove('js'); // fall back to the inline box
+        return;
+      }
+      var HASH = '#why-a-gradient';
+      var body = dialog.querySelector('.dialog-body');
+      var closeBtn = dialog.querySelector('.dialog-close');
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      var afterClose = null;
+      var closing = false;
+
+      body.appendChild(box); // move content into the modal
+
+      function clearHash() {
+        if (location.hash === HASH) {
+          history.replaceState(null, '', location.pathname + location.search);
+        }
+      }
+
+      function open() {
+        if (dialog.open) return;
+        dialog.showModal();
+        document.documentElement.classList.add('modal-open');
+        body.scrollTop = 0;
+        closeBtn.focus();
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { dialog.classList.add('is-open'); });
+        });
+      }
+
+      function close(then) {
+        if (!dialog.open || closing) return;
+        afterClose = then || null;
+        closing = true;
+        dialog.classList.remove('is-open');
+        if (reduceMotion.matches) { dialog.close(); return; }
+        setTimeout(function () { dialog.close(); }, 200);
+      }
+
+      dialog.addEventListener('close', function () {
+        closing = false;
+        hideTip();
+        dialog.classList.remove('is-open');
+        document.documentElement.classList.remove('modal-open');
+        clearHash();
+        var fn = afterClose; afterClose = null;
+        if (fn) { fn(); } else if (trigger) { trigger.focus({ preventScroll: true }); }
+      });
+
+      // Dancer tooltips
+      var figure = box.querySelector('.flow-figure');
+      var dots = Array.prototype.slice.call(box.querySelectorAll('.flow-dot'));
+      var activeDot = null;
+
+      function placeTip(dot, tip) {
+        var fr = figure.getBoundingClientRect();
+        var mark = dot.querySelector('.flow-dot-mark').getBoundingClientRect();
+        var cx = mark.left + mark.width / 2 - fr.left;
+        var top = mark.top - fr.top;
+        var w = tip.offsetWidth, h = tip.offsetHeight, gap = 12;
+        var left = Math.max(0, Math.min(cx - w / 2, fr.width - w));
+        var y = top - h - gap;
+        var below = y < 0;
+        if (below) y = top + mark.height + gap;
+        tip.style.left = left + 'px';
+        tip.style.top = y + 'px';
+        tip.classList.toggle('is-below', below);
+        tip.style.setProperty('--arrow-x', Math.max(12, Math.min(cx - left, w - 12)) + 'px');
+      }
+
+      function showTip(dot) {
+        if (activeDot && activeDot !== dot) hideTip();
+        var tip = document.getElementById(dot.getAttribute('data-tip'));
+        tip.hidden = false;
+        placeTip(dot, tip);
+        dot.classList.add('is-active');
+        activeDot = dot;
+      }
+
+      function hideTip() {
+        if (!activeDot) return false;
+        document.getElementById(activeDot.getAttribute('data-tip')).hidden = true;
+        activeDot.classList.remove('is-active');
+        activeDot = null;
+        return true;
+      }
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') showTip(dot); });
+        dot.addEventListener('pointerleave', function (e) {
+          if (e.pointerType === 'mouse' && activeDot === dot && document.activeElement !== dot) hideTip();
+        });
+        dot.addEventListener('focus', function () { showTip(dot); });
+        dot.addEventListener('blur', function () { if (activeDot === dot) hideTip(); });
+        dot.addEventListener('click', function () { dot.focus(); showTip(dot); });
+        dot.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (activeDot === dot) hideTip(); else showTip(dot);
+          }
+        });
+      });
+
+      // Tap / click elsewhere hides the tooltip
+      dialog.addEventListener('pointerdown', function (e) {
+        if (activeDot && !e.target.closest('.flow-dot')) {
+          var dot = activeDot;
+          hideTip();
+          if (document.activeElement === dot) dot.blur();
+        }
+      });
+      window.addEventListener('resize', function () { if (activeDot) showTip(activeDot); });
+      body.addEventListener('scroll', function () { if (activeDot) showTip(activeDot); });
+
+      // Escape: hide a tooltip first; otherwise animate the modal closed
+      dialog.addEventListener('cancel', function (e) {
+        e.preventDefault();
+        if (hideTip()) return;
+        close();
+      });
+
+      closeBtn.addEventListener('click', function () { close(); });
+
+      // Backdrop click: pointer pressed and released outside the panel
+      var downOnBackdrop = false;
+      dialog.addEventListener('pointerdown', function (e) { downOnBackdrop = (e.target === dialog); });
+      dialog.addEventListener('click', function (e) {
+        if (e.target === dialog && downOnBackdrop) close();
+        downOnBackdrop = false;
+      });
+
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        history.replaceState(null, '', HASH);
+        open();
+      });
+
+      box.addEventListener('click', function (e) {
+        var a = e.target.closest('a[data-dialog-link]');
+        if (!a) return;
+        e.preventDefault();
+        var id = a.getAttribute('href').slice(1);
+        var mode = a.getAttribute('data-dialog-link');
+        close(function () {
+          var target = document.getElementById(id);
+          if (mode === 'scroll' && target) {
+            if (trigger) trigger.focus({ preventScroll: true });
+            target.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+          } else {
+            location.hash = id;
+          }
+        });
+      });
+
+      function checkHash() { if (location.hash === HASH) open(); }
+      window.addEventListener('hashchange', checkHash);
+      checkHash();
+    })();
   </script>
 </body>
 </html>
