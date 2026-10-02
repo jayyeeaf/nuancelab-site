@@ -610,6 +610,21 @@ html.modal-open body {
   color: var(--text-soft);
 }
 
+.concept-list {
+  margin: 0 0 0.85rem;
+  padding-left: 1.2rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.concept-list li {
+  margin-bottom: 0.2rem;
+}
+
+.flow-dialog .gradient-box .concept-list {
+  color: var(--text-soft);
+}
+
 .dialog-close {
   position: absolute;
   top: 0.6rem;

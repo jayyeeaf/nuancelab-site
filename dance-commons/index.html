@@ -300,6 +300,56 @@
             bring the sound and welcome newcomers. We back them with training,
             a portable kit and local partners, because a well-used, cared-for
             space looks after itself.
+            <a class="gradient-trigger" href="#hosts-and-guests" aria-haspopup="dialog" aria-controls="hosts-dialog">Hosts and guests <span aria-hidden="true">→</span></a>
+
+            <aside id="hosts-and-guests" class="concept-box gradient-box" aria-labelledby="hosts-heading">
+              <p class="eyebrow">Behind principle 10 · Working draft, an open question</p>
+              <h3 id="hosts-heading">Hosts and guests</h3>
+              <p>
+                In hip-hop and club dance, many people, often non-Black dancers,
+                describe themselves as guests in the culture. It is a way of
+                showing respect for dance cultures that grew out of Black and
+                Latino communities, often under exclusion, and of answering a
+                long history of erasure and appropriation. We take that
+                seriously: it reminds everyone that these styles have roots and
+                authors.
+              </p>
+              <p>
+                Some questions stay open for us. When, how often and where should
+                guest status be declared? Younger dancers of any background were
+                not there when these cultures began; some older dancers of many
+                backgrounds were, and helped build them. If heritage is read from
+                skin colour alone, presence, contribution and care can drop out
+                of view. We don’t have verdicts here, only questions worth asking
+                honestly.
+              </p>
+              <p>
+                There is a flip side too. If some people are guests, who gets to
+                declare themselves host? Our working answer is to separate two
+                things. Honouring the lineage (knowing and crediting where styles
+                come from, naming the originators, passing that on) is a duty
+                everyone shares, whatever their background. Hosting a local dance
+                commons is something else: a role earned through care and
+                presence, by showing up and looking after the space and the
+                people. It is not a status claimed by birth, or handed out by
+                others.
+              </p>
+              <p>What we hope a host does:</p>
+              <ul class="concept-list">
+                <li>opens the door rather than guarding it;</li>
+                <li>welcomes newcomers and gives them <a href="#space-to-be-awkward" data-dialog-link="navigate">time to be awkward</a>;</li>
+                <li>credits the lineage and the people who taught them;</li>
+                <li>shares the floor and the sound;</li>
+                <li>looks after the space;</li>
+                <li>steps back so new hosts can emerge.</li>
+              </ul>
+              <p>
+                Our stance, for now: respect heritage, history and lineage,
+                without excluding anyone who wants to join. This is an open
+                question we are still working through, and we expect our thinking
+                to change as we listen and learn.
+              </p>
+            </aside>
           </li>
         </ol>
       </div>
@@ -328,6 +378,10 @@
       <button type="button" class="dialog-close" aria-label="Close">×</button>
       <div class="dialog-body"></div>
     </dialog>
+    <dialog id="hosts-dialog" class="flow-dialog" aria-labelledby="hosts-heading">
+      <button type="button" class="dialog-close" aria-label="Close">×</button>
+      <div class="dialog-body"></div>
+    </dialog>
   </main>
 
   <footer class="site-footer">
@@ -340,15 +394,12 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
   <script>
-    (function () {
-      var dialog = document.getElementById('gradient-dialog');
-      var box = document.getElementById('why-a-gradient');
-      var trigger = document.querySelector('.gradient-trigger');
-      if (!dialog || !box || typeof dialog.showModal !== 'function') {
-        document.documentElement.classList.remove('js'); // fall back to the inline box
-        return;
-      }
-      var HASH = '#why-a-gradient';
+    function initPopup(dialogId, boxId) {
+      var dialog = document.getElementById(dialogId);
+      var box = document.getElementById(boxId);
+      var trigger = document.querySelector('.gradient-trigger[href="#' + boxId + '"]');
+      if (!dialog || !box || !trigger) return;
+      var HASH = '#' + boxId;
       var body = dialog.querySelector('.dialog-body');
       var closeBtn = dialog.querySelector('.dialog-close');
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -399,6 +450,7 @@
       var activeDot = null;
 
       function placeTip(dot, tip) {
+        if (!figure) return;
         var fr = figure.getBoundingClientRect();
         var mark = dot.querySelector('.flow-dot-mark').getBoundingClientRect();
         var cx = mark.left + mark.width / 2 - fr.left;
@@ -501,6 +553,16 @@
       function checkHash() { if (location.hash === HASH) open(); }
       window.addEventListener('hashchange', checkHash);
       checkHash();
+    }
+
+    (function () {
+      var probe = document.getElementById('gradient-dialog');
+      if (!probe || typeof probe.showModal !== 'function') {
+        document.documentElement.classList.remove('js'); // fall back to the inline boxes
+        return;
+      }
+      initPopup('gradient-dialog', 'why-a-gradient');
+      initPopup('hosts-dialog', 'hosts-and-guests');
     })();
   </script>
 </body>
